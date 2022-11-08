@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color:rgba(255, 187, 0, 0.121);">
+    <center>
+    <h2>Verify Users</h2>
+        <table border="5" width="20%">  
+            <tr>  
+               <th>ID</th>  
+               <th>USERNAME</th>  
+               <th>PASSWORD</th>
+               <th>VERIFY</th></tr>  
+            {% for details in all_detail %}  
+            <tr style = "text-align: center;">
+                 
+                <td>{{ details.userid }}</td>  
+                <td>{{ details.username}}</td>  
+                <td>{{ details.password }}</td>  
+                <td>
+                    <form action="/acc" method="POST">
+                        <input type="text" name="userid" value = {{ details.userid }} hidden readonly/>
+                        <input type="radio" name="role" value="student"> Student </input>
+                        <input type="radio" name="role" value="teacher"> Teacher </input>
+                        <input type="radio" name="role" value="remove"> Remove </input>
+                        <input type="submit">
+                    </form>
+                </td> 
+            </tr>  
+            {% endfor %}</table> 
+      <br>
+    </center>
+</body>
+</html>
